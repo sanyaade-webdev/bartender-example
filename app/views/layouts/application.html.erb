@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+
+  <title>Bartender Example</title>
+
+  <link rel="stylesheet" type="text/css" href="<%= compute_public_path('screen', 'stylesheets', 'css') %>" media="screen">
+</head>
+<body>
+
+<header>
+  <ul>
+    <li><a href="/">!</a></li>
+    <li><a href="/beers">Beers</a></li>
+    <li><a href="/breweries">Breweries</a></li>
+  </ul>
+</header>
+
+<section>
+  <header>
+    <%= yield :title %>
+  </header>
+</section>
+
+<section>
+  <%= yield %>
+</section>
+
+</body>
+</html>

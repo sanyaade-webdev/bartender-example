@@ -1,0 +1,26 @@
+<% content_for :title do -%>
+  <h2>Breweries</h2>
+<% end -%>
+
+<table id="breweries">
+  <thead>
+    <th>Name</th>
+    <th>Website</th>
+    <th class="public">Public</th>
+    <th>Updated</th>
+    <th>Created</th>
+  </thead>
+  <tbody>
+    <% @breweries.each do |brewery| -%>
+      <tr<%== cycle(' class="odd"', '') %>>
+        <td><%= link_to brewery.name, brewery_path(brewery.id) %></td>
+        <td><%= link_to brewery.url, brewery.url %></td>
+        <td class="public"><%= brewery.user_id.present? ? 'No' : 'Yes' %></td>
+        <td class="updated_at"><%= Time.parse(brewery.updated_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td class="created_at"><%= Time.parse(brewery.created_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
+
+<%= will_paginate @breweries %>

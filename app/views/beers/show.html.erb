@@ -1,0 +1,32 @@
+<% content_for :title do -%>
+  <h2>Beers &#8211; <%= @beer.name %></h2>
+<% end -%>
+
+<table id="beer-<%= @beer.id %>">
+  <tbody>
+    <tr>
+      <th>Brewery</th>
+      <td><%= link_to @beer.brewery.name, brewery_path(@beer.brewery.id) %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @beer.description %></td>
+    </tr>
+    <tr>
+      <th>ABV</th>
+      <td><%= @beer.abv %></td>
+    </tr>
+    <tr>
+      <th>Public</th>
+      <td><%= @beer.user_id.present? ? 'No' : 'Yes' %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= Time.parse(@beer.updated_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= Time.parse(@beer.created_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
+    </tr>
+  </tbody>
+</table>
