@@ -35,6 +35,23 @@ describe Brewery, '.find' do
   end
 end
 
+describe Brewery, '.count' do
+  let(:response) { { 'total' => 12 } }
+
+  before do
+    Bartender::Brewery.stubs(:all).returns(response)
+  end
+
+  it 'retrieves one brewery to determine the count' do
+    Brewery.count
+    Bartender::Brewery.should have_received(:all).with(:per_page => 1)
+  end
+
+  it 'returns the count' do
+    Brewery.count.should == 12
+  end
+end
+
 describe Brewery, '.paginate' do
   let!(:brewery)   { Brewery.new(attributes) }
   let(:response)   { { 'page' => 1, 'pages' => 3, 'total' => 12, 'breweries' => [attributes] } }

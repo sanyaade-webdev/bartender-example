@@ -33,6 +33,23 @@ describe Beer, '#brewery' do
   end
 end
 
+describe Beer, '.count' do
+  let(:response) { { 'total' => 12 } }
+
+  before do
+    Bartender::Beer.stubs(:all).returns(response)
+  end
+
+  it 'retrieves one beer to determine the count' do
+    Beer.count
+    Bartender::Beer.should have_received(:all).with(:per_page => 1)
+  end
+
+  it 'returns the count' do
+    Beer.count.should == 12
+  end
+end
+
 describe Beer, '.find' do
   let!(:beer)       { Beer.new(attributes) }
   let!(:attributes) { { :id => 1 } }
