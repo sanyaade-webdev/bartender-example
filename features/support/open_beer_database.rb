@@ -11,10 +11,12 @@ end
 ShamRack.at('api.openbeerdatabase.com').sinatra do
   helpers do
     def paginate(collection)
-      column = params[:column] || 'id'
+      column, order = params['order'].to_s.split(' ', 2)
+      column ||= 'id'
+      order  ||= 'ASC'
 
       collection.slice(per_page * (page - 1), per_page).sort do |a, b|
-        params[:order] == 'DESC' ? b[column] <=> a[column] : a[column] <=> b[column]
+        order == 'DESC' ? b[column] <=> a[column] : a[column] <=> b[column]
       end
     end
 

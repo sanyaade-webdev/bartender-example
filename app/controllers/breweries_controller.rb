@@ -1,6 +1,6 @@
 class BreweriesController < ApplicationController
   def index
-    @breweries = Brewery.paginate(:column => 'name')
+    @breweries = Brewery.paginate(:order => 'name')
   end
 
   def show
