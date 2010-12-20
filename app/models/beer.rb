@@ -20,7 +20,7 @@ class Beer
     beers    = Bartender::Beer.all(options)
     page     = beers['page']
     total    = beers['total']
-    per_page = options['per_page'] || 50
+    per_page = options[:per_page] || 50
 
     collection = WillPaginate::Collection.new(page, per_page, total)
     collection.replace(beers['beers'].collect { |brewery| Beer.new(brewery) })
