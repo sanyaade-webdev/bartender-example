@@ -6,15 +6,15 @@
   <tbody>
     <tr>
       <th>Public</th>
-      <td><%= @brewery.user_id.present? ? 'No' : 'Yes' %></td>
+      <td><%= @brewery.user_id.present? ? "No" : "Yes" %></td>
     </tr>
     <tr>
       <th>Updated</th>
-      <td><%= Time.parse(@brewery.updated_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
+      <td><%= Time.parse(@brewery.updated_at).strftime("%Y-%m-%d %H:%M:%S") %></td>
     </tr>
     <tr>
       <th>Created</th>
-      <td><%= Time.parse(@brewery.created_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
+      <td><%= Time.parse(@brewery.created_at).strftime("%Y-%m-%d %H:%M:%S") %></td>
     </tr>
   </tbody>
 </table>

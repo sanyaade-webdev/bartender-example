@@ -8,7 +8,7 @@ class Brewery
   end
 
   def self.count
-    Bartender::Brewery.all(:per_page => 1)['total'].to_i
+    Bartender::Brewery.all(:per_page => 1)["total"].to_i
   end
 
   def self.find(id)
@@ -17,11 +17,11 @@ class Brewery
 
   def self.paginate(options = {})
     breweries = Bartender::Brewery.all(options)
-    page      = breweries['page']
-    total     = breweries['total']
+    page      = breweries["page"]
+    total     = breweries["total"]
     per_page  = options[:per_page] || 50
 
     collection = WillPaginate::Collection.new(page, per_page, total)
-    collection.replace(breweries['breweries'].collect { |brewery| Brewery.new(brewery) })
+    collection.replace(breweries["breweries"].collect { |brewery| Brewery.new(brewery) })
   end
 end

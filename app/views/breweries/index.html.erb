@@ -12,12 +12,12 @@
   </thead>
   <tbody>
     <% @breweries.each do |brewery| -%>
-      <tr<%== cycle(' class="odd"', '') %>>
+      <tr<%== cycle(' class="odd"', "") %>>
         <td><%= link_to brewery.name, brewery_path(brewery.id) %></td>
         <td><%= link_to brewery.url, brewery.url %></td>
-        <td class="public"><%= brewery.user_id.present? ? 'No' : 'Yes' %></td>
-        <td class="updated_at"><%= Time.parse(brewery.updated_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
-        <td class="created_at"><%= Time.parse(brewery.created_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td class="public"><%= brewery.user_id.present? ? "No" : "Yes" %></td>
+        <td class="updated_at"><%= Time.parse(brewery.updated_at).strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td class="created_at"><%= Time.parse(brewery.created_at).strftime("%Y-%m-%d %H:%M:%S") %></td>
       </tr>
     <% end -%>
   </tbody>

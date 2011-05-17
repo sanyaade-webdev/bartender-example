@@ -8,15 +8,15 @@ class OpenBeerDatabase
   end
 end
 
-ShamRack.at('api.openbeerdatabase.com').sinatra do
+ShamRack.at("api.openbeerdatabase.com").sinatra do
   helpers do
     def paginate(collection)
-      column, order = params['order'].to_s.split(' ', 2)
-      column ||= 'id'
-      order  ||= 'ASC'
+      column, order = params["order"].to_s.split(" ", 2)
+      column ||= "id"
+      order  ||= "ASC"
 
       collection.slice(per_page * (page - 1), per_page).sort do |a, b|
-        order == 'DESC' ? b[column] <=> a[column] : a[column] <=> b[column]
+        order == "DESC" ? b[column] <=> a[column] : a[column] <=> b[column]
       end
     end
 
@@ -33,11 +33,11 @@ ShamRack.at('api.openbeerdatabase.com').sinatra do
     end
   end
 
-  get '/v1/beers.json' do
+  get "/v1/beers.json" do
     beers = paginate(database.beers).each do |beer|
-      brewery = database.breweries.find { |brewery| brewery['id'] == beer['brewery_id'] }
+      brewery = database.breweries.find { |brewery| brewery["id"] == beer["brewery_id"] }
 
-      beer['brewery'] = { 'id' => brewery['id'], 'name' => brewery['name'] }
+      beer["brewery"] = { "id" => brewery["id"], "name" => brewery["name"] }
     end
 
     { :page  => page,
@@ -47,15 +47,15 @@ ShamRack.at('api.openbeerdatabase.com').sinatra do
     }.to_json
   end
 
-  get '/v1/beers/:id.json' do |id|
-    beer    = database.beers.find { |beer| beer['id'] == id }
-    brewery = database.breweries.find { |brewery| brewery['id'] == beer['brewery_id'] }
+  get "/v1/beers/:id.json" do |id|
+    beer    = database.beers.find { |beer| beer["id"] == id }
+    brewery = database.breweries.find { |brewery| brewery["id"] == beer["brewery_id"] }
 
-    beer['brewery'] = { 'id' => brewery['id'], 'name' => brewery['name'] }
+    beer["brewery"] = { "id" => brewery["id"], "name" => brewery["name"] }
     beer.to_json
   end
 
-  get '/v1/breweries.json' do
+  get "/v1/breweries.json" do
     { :page      => page,
       :pages     => (database.breweries.size / per_page.to_f).ceil,
       :total     => database.breweries.size,
@@ -63,8 +63,8 @@ ShamRack.at('api.openbeerdatabase.com').sinatra do
     }.to_json
   end
 
-  get '/v1/breweries/:id.json' do |id|
-    brewery = database.breweries.find { |brewery| brewery['id'] == id }
+  get "/v1/breweries/:id.json" do |id|
+    brewery = database.breweries.find { |brewery| brewery["id"] == id }
     brewery.to_json
   end
 end
