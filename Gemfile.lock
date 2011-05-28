@@ -29,7 +29,7 @@ GEM
       activesupport (= 3.0.7)
     activesupport (3.0.7)
     arel (2.0.9)
-    bartender (0.2.0)
+    bartender (0.3.0)
       yajl-ruby (>= 0.8.2)
     bourne (1.0)
       mocha (= 0.9.8)
@@ -135,7 +135,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bartender (= 0.2.0)
+  bartender (= 0.3.0)
   bourne (= 1.0)
   capybara (= 0.4.1.2)
   cucumber-rails (= 0.4.1)
