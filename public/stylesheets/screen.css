@@ -125,3 +125,33 @@ table td.created_at,
 table td.updated_at {
   width: 120px;
 }
+
+.pagination {
+  background: inherit;
+  color: #888;
+  margin: 32px 0 0 0;
+  padding: 0 12px;
+  font-size: 12px;
+}
+
+.pagination a,
+.pagination em {
+  margin: 0 2px;
+  display: inline-block;
+}
+
+.pagination a {
+  background: inherit;
+  color: #36C;
+}
+
+.pagination em {
+  background: inherit;
+  color: #000;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.pagination .disabled {
+  display: none;
+}
