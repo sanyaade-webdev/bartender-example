@@ -19,3 +19,13 @@ Feature: List breweries
       | 2  | 1       | Abita         | http://abita.com               | 2010-03-03 | 2010-04-04 |
       | 3  |         | Russian River | http://russianriverbrewing.com | 2010-05-05 | 2010-06-06 |
       | 1  |         | Southern Tier | http://southerntierbrewing.com | 2010-01-01 | 2010-02-02 |
+
+  Scenario: Listing breweries with pagination
+    Given 50 breweries exist
+    And the following brewery exists:
+      | id | name          | url                            | created_at | updated_at |
+      | 1  | Southern Tier | http://southerntierbrewing.com | 2010-01-01 | 2010-02-02 |
+    When I am on the breweries page
+    Then I should not see "Southern Tier"
+    When I follow "2"
+    Then I should see "Southern Tier"

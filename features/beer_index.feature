@@ -24,3 +24,13 @@ Feature: List beers
       | 2  | 1       | 3          | Russian River | Pliney the Elder   | 2010-03-03 | 2010-04-04 |
       | 1  |         | 1          | Southern Tier | Pumpking           | 2010-01-01 | 2010-02-02 |
       | 3  |         | 2          | Abita         | Strawberry Harvest | 2010-05-05 | 2010-06-06 |
+
+  Scenario: Listing beers with pagination
+    Given 50 beers exist
+    And the following beer exists:
+      | id | brewery_id | name     | created_at | updated_at |
+      | 1  | 1          | Pumpking | 2010-01-01 | 2010-02-02 |
+    When I am on the beers page
+    Then I should not see "Pumpking"
+    When I follow "2"
+    Then I should see "Pumpking"
