@@ -1,6 +1,6 @@
 class BeersController < ApplicationController
   def index
-    @beers = Beer.paginate(:order => "name", :page => params[:page] || 1)
+    @beers = Beer.paginate(:order => "name", :page => params[:page])
   end
 
   def show
