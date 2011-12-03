@@ -1,0 +1,159 @@
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  font-family: "IconicStroke";
+  src: local("IconicStroke"), url("iconic.ttf") format("truetype");
+}
+
+p,
+h2,
+ul,
+li,
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #FFF;
+  color: #555;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+header {
+  ul {
+    background: -webkit-gradient(linear, left top, left bottom, from(#555), to(#222));
+    height: 38px;
+    padding: 0 0 0 32px;
+    list-style: none;
+  }
+
+  li {
+    display: inline;
+
+    a {
+      background: -webkit-gradient(linear, left top, left bottom, from(#777), to(#444));
+      color: #FFF;
+      margin: 4px 8px 0 0;
+      padding: 6px 8px;
+      border: 1px solid #222;
+      font-size: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      float: left;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      -webkit-border-radius: 4px;
+      -webkit-box-shadow: 0 1px 1px #555, inset 0 1px 1px #999;
+    }
+
+    &:first-child a {
+      padding: 3px 4px 0 6px;
+      font-size: 24px;
+      font-family: "IconicStroke";
+      font-weight: normal;
+      line-height: 1;
+    }
+  }
+}
+
+section + section {
+  padding: 32px;
+}
+
+section header {
+  background: #EEE;
+  color: #000;
+  padding: 16px 32px;
+  border-bottom: 1px solid #DDD;
+
+  h2 {
+    font-size: 26px;
+    font-weight: normal;
+  }
+}
+
+table {
+  font-size: 13px;
+  border-spacing: 0;
+
+  th,
+  td {
+    padding: 8px 12px;
+    text-align: left;
+  }
+
+  th {
+    border-right: 2px solid #FFF;
+    border-bottom: 2px solid #CCC;
+  }
+
+  tbody th {
+    width: 1%;
+    border: 0;
+    text-align: right;
+    vertical-align: top;
+  }
+
+  td a {
+    background: transparent;
+    color: #555;
+    text-decoration: none;
+
+    &:hover {
+      background: transparent;
+      color: #000;
+      text-decoration: underline;
+    }
+  }
+
+  tr.odd td {
+    background: #F6F6F6;
+  }
+
+  th.public,
+  td.public {
+    width: 38px;
+    text-align: center;
+  }
+
+  td.created_at,
+  td.updated_at {
+    width: 120px;
+  }
+}
+
+.pagination {
+  background: inherit;
+  color: #888;
+  margin: 32px 0 0 0;
+  padding: 0 12px;
+  font-size: 12px;
+
+  a,
+  em {
+    margin: 0 2px;
+    display: inline-block;
+  }
+
+  a {
+    background: inherit;
+    color: #36C;
+  }
+
+  em {
+    background: inherit;
+    color: #000;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .disabled {
+    display: none;
+  }
+}
