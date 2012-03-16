@@ -1,4 +1,4 @@
-# Open Beer Database Bartender Example
+# Open Beer Database Bartender Example [![Build Status](https://secure.travis-ci.org/tristandunn/bartender-example.png?branch=master)](http://travis-ci.org/tristandunn/bartender-example)
 
 A basic example of using [Bartender](https://github.com/tristandunn/bartender) to interact with [Open Beer Database](https://github.com/tristandunn/openbeerdatabase).
 
