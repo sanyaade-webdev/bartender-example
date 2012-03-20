@@ -40,10 +40,10 @@ ShamRack.at("api.openbeerdatabase.com").sinatra do
       beer["brewery"] = { "id" => brewery["id"], "name" => brewery["name"] }
     end
 
-    { :page  => page,
-      :pages => (database.beers.size / per_page.to_f).ceil,
-      :total => database.beers.size,
-      :beers => beers
+    { page:  page,
+      pages: (database.beers.size / per_page.to_f).ceil,
+      total: database.beers.size,
+      beers: beers
     }.to_json
   end
 
@@ -56,10 +56,10 @@ ShamRack.at("api.openbeerdatabase.com").sinatra do
   end
 
   get "/v1/breweries.json" do
-    { :page      => page,
-      :pages     => (database.breweries.size / per_page.to_f).ceil,
-      :total     => database.breweries.size,
-      :breweries => paginate(database.breweries)
+    { page:      page,
+      pages:     (database.breweries.size / per_page.to_f).ceil,
+      total:     database.breweries.size,
+      breweries: paginate(database.breweries)
     }.to_json
   end
 

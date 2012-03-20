@@ -11,7 +11,7 @@ end
 
 describe Brewery, ".find" do
   let!(:brewery)    { Brewery.new(attributes) }
-  let!(:attributes) { { :id => 1 } }
+  let!(:attributes) { { id: 1 } }
 
   before do
     Brewery.stubs(:new).returns(brewery)
@@ -44,7 +44,7 @@ describe Brewery, ".count" do
 
   it "retrieves one brewery to determine the count" do
     Brewery.count
-    Bartender::Brewery.should have_received(:all).with(:per_page => 1)
+    Bartender::Brewery.should have_received(:all).with(per_page: 1)
   end
 
   it "returns the count" do
@@ -55,7 +55,7 @@ end
 describe Brewery, ".paginate" do
   let!(:brewery)   { Brewery.new(attributes) }
   let(:response)   { { "page" => 1, "pages" => 3, "total" => 12, "breweries" => [attributes] } }
-  let(:attributes) { { :id => 1 } }
+  let(:attributes) { { id: 1 } }
   let(:collection) { stub("Collection") }
 
   before do
@@ -66,8 +66,8 @@ describe Brewery, ".paginate" do
   end
 
   it "retrieves breweries with provided options" do
-    Brewery.paginate(:page => 1)
-    Bartender::Brewery.should have_received(:all).with(:page => 1)
+    Brewery.paginate(page: 1)
+    Bartender::Brewery.should have_received(:all).with(page: 1)
   end
 
   it "creates a collection" do

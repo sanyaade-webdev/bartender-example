@@ -8,7 +8,7 @@ class Brewery
   end
 
   def self.count
-    Bartender::Brewery.all(:per_page => 1)["total"].to_i
+    Bartender::Brewery.all(per_page: 1)["total"].to_i
   end
 
   def self.find(id)
