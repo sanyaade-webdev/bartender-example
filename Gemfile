@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "bartender",     "0.5.0"
+gem "bartender",     "0.6.0"
 gem "rails",         "3.2.9"
 gem "will_paginate", "3.0.3"
 
@@ -13,7 +13,7 @@ group :development do
 end
 
 group :test do
-  gem "bourne",         "1.2.0"
+  gem "bourne",         "1.3.0"
   gem "cucumber-rails", "1.3.0", :require => false
   gem "rspec-rails",    "2.12.0"
   gem "sham_rack",      "1.3.4"
